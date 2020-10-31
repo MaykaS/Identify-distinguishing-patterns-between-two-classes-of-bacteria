@@ -27,7 +27,7 @@ print(fpGrowth.findPrefixPath('z', myHeaderTab['z'][1]))
 print(fpGrowth.findPrefixPath('r', myHeaderTab['r'][1]))
 print("end of Listing 12.4")
 print("\n")
-print("start of Listing 12.5") #TODO: DOESNT PRINT RIGHT!
+print("start of Listing 12.5")
 #Now create an empty list to store all the frequent itemsets
 freqItems = []
 print(fpGrowth.mineTree(myFPtree, myHeaderTab, 3, set([]), freqItems))
