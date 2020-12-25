@@ -29,8 +29,6 @@ def func(dict):
     file.close()
     f_human = open("Human_taxa.txt", "r")
     f_animal = open("Animal_taxa.txt", "r")
-    if "Arthrobacter_arilaitensis_Re117_uid53509" in f_animal.read():
-        print("ok")
     for line in lines:
         # print(line)
         line = line.split('\t')
