@@ -27,7 +27,7 @@ def calculate_entropy(item,dict):
     num_of_0_item_not = 0
     num_of_1_item_not = 0
     for k in dict.keys():
-        if item.issubset(dict[k][0]) :
+        if set(item).issubset(dict[k][0]) :
             if dict[k][1]==0:
                 num_of_0_item_in+=1
             else:
@@ -58,3 +58,21 @@ def delete(item,dict):
             trans_to_del.append(k)
     for trans in trans_to_del:
         del(dict[trans])
+
+def dived_data(dict,dataSetList,num):#just five blocks regular
+    length = len(dict.keys())
+    a = int(length/num)
+    keys = list(dict.keys())
+    for i in range(0,num):
+        dataSetList.append([])
+    j = 0
+    i = 0
+    for k in dict.keys():
+        dataSetList[i].append(dict[k][0])
+        j+=1
+        if j == a:
+            if i == num-1:
+                continue
+            i+=1
+            j = 0
+

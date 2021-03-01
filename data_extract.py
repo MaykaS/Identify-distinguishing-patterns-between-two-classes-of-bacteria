@@ -3,16 +3,19 @@ def func(dict):
     file = open('bactTaxa_Habitat.txt', mode = 'r')
     lines = file.readlines()
     file.close()
-    f_human = open("Human_taxa.txt", "w")
+    f_human = open("Host_taxa.txt", "w")
     f_animal = open("Animal_taxa.txt", "w")
+    i = 0
     for line in lines:
         line = line.split(';')
         word=line[-1].rstrip()
         if word=="Human":
-            f_human.write(line[1]+"\n")
-            list =[[],0]
-            dict[line[1]]=list
-        if word=="Animal":
+            if i < 125: #we want that human and plant have the same amunt of trans
+                f_human.write(line[1]+"\n")
+                list =[[],0]
+                dict[line[1]]=list
+                i+=1
+        if word=="Plant":
             f_animal.write(line[1]+"\n")
             list = [[],1]
             dict[line[1]] = list
@@ -27,7 +30,7 @@ def func(dict):
     f_animal_cog = open("Animal_cog.txt", "w")
     lines = file.readlines()
     file.close()
-    f_human = open("Human_taxa.txt", "r")
+    f_human = open("Host_taxa.txt", "r")
     f_animal = open("Animal_taxa.txt", "r")
     for line in lines:
         # print(line)
